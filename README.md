@@ -3,8 +3,6 @@ Disney Palettes
 
 <img src="./alice.PNG" width=500px />
 
-![](alice.PNG)
-
 Palette Colours from a blog post
 [here](http://elijahmeeks.com/#content/blog/2015_08_17_palettes).
 Palette made following blog post
@@ -42,13 +40,14 @@ dsamp <- diamonds[sample(nrow(diamonds), 1000), ]
 ![](README_files/figure-markdown_github/unnamed-chunk-2-1.png)
 
 ``` r
-# Change scale to disney
+# Change scale to disney default
 d + scale_colour_disney()
 ```
 
 ![](README_files/figure-markdown_github/unnamed-chunk-2-2.png)
 
 ``` r
+# Change scale to disney - `alice` palette
 d + scale_colour_disney("alice")
 ```
 
@@ -63,15 +62,10 @@ disney_palettes[["cinderella"]]
 
 # Another example taken from ?scale_colour_discrete and amended
 miss <- factor(sample(c(NA, 1:5), nrow(mtcars), replace = TRUE))
-ggplot(mtcars, aes(mpg, wt)) + geom_point(aes(colour = miss))
-```
 
-![](README_files/figure-markdown_github/unnamed-chunk-2-4.png)
-
-``` r
 ggplot(mtcars, aes(mpg, wt)) +
   geom_point(aes(colour = miss)) +
   scale_colour_disney(na.value = "black")
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-2-5.png)
+![](README_files/figure-markdown_github/unnamed-chunk-2-4.png)

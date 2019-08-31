@@ -15,7 +15,6 @@ knitr::opts_chunk$set(
 
 <img src="./alice.PNG" width=500px /> 
 
-![](alice.PNG)
 
 Palette Colours from a blog post [here](http://elijahmeeks.com/#content/blog/2015_08_17_palettes).
 Palette made following blog post [here](https://drsimonj.svbtle.com/creating-corporate-colour-palettes-for-ggplot2)
@@ -41,8 +40,9 @@ str_glue("The number of discrete colours in the `main` combination palette is: {
 # Examples taken from ?scale_colour_discrete and amended
 dsamp <- diamonds[sample(nrow(diamonds), 1000), ]
 (d <- ggplot(dsamp, aes(carat, price)) + geom_point(aes(colour = clarity)))
-# Change scale to disney
+# Change scale to disney default
 d + scale_colour_disney()
+# Change scale to disney - `alice` palette
 d + scale_colour_disney("alice")
 
 # Lookup colours of one palette
@@ -50,7 +50,7 @@ disney_palettes[["cinderella"]]
 
 # Another example taken from ?scale_colour_discrete and amended
 miss <- factor(sample(c(NA, 1:5), nrow(mtcars), replace = TRUE))
-ggplot(mtcars, aes(mpg, wt)) + geom_point(aes(colour = miss))
+
 ggplot(mtcars, aes(mpg, wt)) +
   geom_point(aes(colour = miss)) +
   scale_colour_disney(na.value = "black")
