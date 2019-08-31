@@ -60,5 +60,4 @@ ggplot(mtcars, aes(hp, mpg, colour = as.factor(cyl))) +
   ) +
   facet_wrap(~cyl) +
   theme_tq()
-
 }

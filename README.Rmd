@@ -1,0 +1,53 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Disney Palettes
+<img src="./alice.png" width=500px />
+Palette Colours from a blog post [here](http://elijahmeeks.com/#content/blog/2015_08_17_palettes).
+Palette made following blog post [here](https://drsimonj.svbtle.com/creating-corporate-colour-palettes-for-ggplot2)
+
+## Installation
+
+__The development version__
+
+```r
+devtools::install_github("sciencificity/disneycolouR")
+```
+
+## Usage
+
+```{r, message = FALSE}
+library(disneycolouR)
+# See all palettes
+names(disney_palettes)
+
+# See number discrete values in "main" the combo palette
+str_glue("The number of discrete colours in the `main` combination palette is: {length(disney_palettes[['main']])}")
+
+# Examples taken from ?scale_colour_discrete and amended
+dsamp <- diamonds[sample(nrow(diamonds), 1000), ]
+(d <- ggplot(dsamp, aes(carat, price)) + geom_point(aes(colour = clarity)))
+# Change scale to disney
+d + scale_colour_disney()
+d + scale_colour_disney("alice")
+
+# Lookup colours of one palette
+disney_palettes[["cinderella"]]
+
+# Another example taken from ?scale_colour_discrete and amended
+miss <- factor(sample(c(NA, 1:5), nrow(mtcars), replace = TRUE))
+ggplot(mtcars, aes(mpg, wt)) + geom_point(aes(colour = miss))
+ggplot(mtcars, aes(mpg, wt)) +
+  geom_point(aes(colour = miss)) +
+  scale_colour_disney(na.value = "black")
+```
