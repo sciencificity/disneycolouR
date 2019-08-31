@@ -1,0 +1,16 @@
+Package: disneycolouRs
+Type: Package
+Title: Palettes for Disney colours
+Version: 0.1.0
+Author: Vebash
+Maintainer: Vebashini Naidoo <sciencificity@gmail.com>
+Description: Palette Colours from : 
+    http://elijahmeeks.com/#content/blog/2015_08_17_palettes
+    Palette made ffg blog post: 
+    https://drsimonj.svbtle.com/creating-corporate-colour-palettes-for-ggplot2
+License: CC0
+Encoding: UTF-8
+LazyData: true
+Depends: tidyverse, 
+         tidyquant
+RoxygenNote: 6.1.1
