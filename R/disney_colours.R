@@ -5,42 +5,42 @@
 #   https://drsimonj.svbtle.com/creating-corporate-colour-palettes-for-ggplot2
 
 #' The list of disney colours
-disney_colours = c(
-    `cind1` = "#96abb1",
-    `cind2` = "#313746",
-    `cind3` = "#b0909d",
-    `cind4` = "#687a97",
-    `cind5` = "#292014",
-    `monet1` = "#08221c",
-    `monet2` = "#113719",
-    `monet3` = "#36611b",
-    `monet4` = "#72972f",
-    `monet5` = "#a4b77d",
-    `monet6` = "#cdc597",
-    `smallworld1` = "#00a2ce",
-    `smallworld2` = "#b3331d",
-    `smallworld3` = "#b6a756",
-    `smallworld4` = "#122753",
-    `smallworld5` = "#b86117",
-    `smallworld6` = "#4d430c",
-    `alice1` = "#827abf",
-    `alice2` = "#f62150",
-    `alice3` = "#6f89b6",
-    `alice4` = "#f5e0b7",
-    `alice5` = "#5b1e37",
-    `alice6` = "#b9e3c5",
-    `pan1` = "#27552d",
-    `pan2` = "#e46538",
-    `pan3` = "#96bb77",
-    `pan4` = "#e5e36e",
-    `pan5` = "#e6a19f",
-    `pan6` = "#159eb7",
-    `yourage1` = "#3b4274",
-    `yourage2` = "#d2130a",
-    `yourage3` = "#c8a88a",
-    `yourage4` = "#857d7b",
-    `yourage5` = "#592e2a",
-    `yourage6` = "#e39587"
+disney_colours <- c(
+  `cind1`       = "#96abb1",
+  `cind2`       = "#313746",
+  `cind3`       = "#b0909d",
+  `cind4`       = "#687a97",
+  `cind5`       = "#292014",
+  `monet1`      = "#08221c",
+  `monet2`      = "#113719",
+  `monet3`      = "#36611b",
+  `monet4`      = "#72972f",
+  `monet5`      = "#a4b77d",
+  `monet6`      = "#cdc597",
+  `smallworld1` = "#00a2ce",
+  `smallworld2` = "#b3331d",
+  `smallworld3` = "#b6a756",
+  `smallworld4` = "#122753",
+  `smallworld5` = "#b86117",
+  `smallworld6` = "#4d430c",
+  `alice1`      = "#827abf",
+  `alice2`      = "#f62150",
+  `alice3`      = "#6f89b6",
+  `alice4`      = "#f5e0b7",
+  `alice5`      = "#5b1e37",
+  `alice6`      = "#b9e3c5",
+  `pan1`        = "#27552d",
+  `pan2`        = "#e46538",
+  `pan3`        = "#96bb77",
+  `pan4`        = "#e5e36e",
+  `pan5`        = "#e6a19f",
+  `pan6`        = "#159eb7",
+  `yourage1`    = "#3b4274",
+  `yourage2`    = "#d2130a",
+  `yourage3`    = "#c8a88a",
+  `yourage4`    = "#857d7b",
+  `yourage5`    = "#592e2a",
+  `yourage6`    = "#e39587"
 )
 
 #' Function to extract colours as hex codes
@@ -48,13 +48,13 @@ disney_colours = c(
 #' @param ... Character names of disney_colours
 #'
 disney_cols <- function(...) {
+  cols <- c(...)
 
-    cols <- c(...)
+  if (is.null(cols)) {
+    return(disney_colours)
+  }
 
-    if (is.null(cols))
-        return (disney_colours)
-
-    disney_colours[cols]
+  disney_colours[cols]
 }
 
 #' Function to create palettes
@@ -103,11 +103,16 @@ disney_palettes <- list(
 #' @param ... Additional arguments to pass to colorRampPalette()
 #'
 disney_pal <- function(palette = "main", reverse = FALSE, ...) {
-    pal <- disney_palettes[[palette]]
+  pal <- disney_palettes[[palette]]
 
-    if (reverse) pal <- rev(pal)
+  if (is.null(pal)) {
+    stop(str_glue("Cannot find palette! Palette names are: cinderella, monet, small_world, alice,
+                  pan, when_i_was_your_age, main."))
+  }
 
-    colorRampPalette(pal, ...)
+  if (reverse) pal <- rev(pal)
+
+  colorRampPalette(pal, ...)
 }
 
 #' Colour scale constructor for some disney-ish colours
@@ -159,16 +164,15 @@ disney_pal <- function(palette = "main", reverse = FALSE, ...) {
 #'   ) +
 #'   facet_wrap(~cyl) +
 #'   theme_tq()
-#'
 #' @export
 scale_colour_disney <- function(palette = "main", discrete = TRUE, reverse = FALSE, ...) {
-    pal <- disney_pal(palette = palette, reverse = reverse)
+  pal <- disney_pal(palette = palette, reverse = reverse)
 
-    if (discrete) {
-        discrete_scale("colour", paste0("disney_", palette), palette = pal, ...)
-    } else {
-        scale_colour_gradientn(colours = pal(256), ...)
-    }
+  if (discrete) {
+    discrete_scale("colour", paste0("disney_", palette), palette = pal, ...)
+  } else {
+    scale_colour_gradientn(colours = pal(256), ...)
+  }
 }
 
 #' Color scale constructor for some disney-ish colors
@@ -201,19 +205,18 @@ scale_colour_disney <- function(palette = "main", discrete = TRUE, reverse = FAL
 #' @examples
 #' # Color by discrete variable using default palette
 #' ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
-#'     geom_point(size = 4) +
-#'     scale_color_disney() +
-#'     theme_tq()
-#'
+#'   geom_point(size = 4) +
+#'   scale_color_disney() +
+#'   theme_tq()
 #' @export
 scale_color_disney <- function(palette = "main", discrete = TRUE, reverse = FALSE, ...) {
-    pal <- disney_pal(palette = palette, reverse = reverse)
+  pal <- disney_pal(palette = palette, reverse = reverse)
 
-    if (discrete) {
-        discrete_scale("colour", paste0("disney_", palette), palette = pal, ...)
-    } else {
-        scale_color_gradientn(colours = pal(256), ...)
-    }
+  if (discrete) {
+    discrete_scale("colour", paste0("disney_", palette), palette = pal, ...)
+  } else {
+    scale_color_gradientn(colours = pal(256), ...)
+  }
 }
 
 #' Fill scale constructor for some disney-ish colours
@@ -246,17 +249,16 @@ scale_color_disney <- function(palette = "main", discrete = TRUE, reverse = FALS
 #' @examples
 #' # Fill by discrete variable with different palette + remove legend (guide)
 #' ggplot(mpg, aes(manufacturer, fill = manufacturer)) +
-#'     geom_bar() +
-#'     theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-#'     scale_fill_disney(palette = "main", guide = "none")
-#'
+#'   geom_bar() +
+#'   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+#'   scale_fill_disney(palette = "main", guide = "none")
 #' @export
 scale_fill_disney <- function(palette = "main", discrete = TRUE, reverse = FALSE, ...) {
-    pal <- disney_pal(palette = palette, reverse = reverse)
+  pal <- disney_pal(palette = palette, reverse = reverse)
 
-    if (discrete) {
-        discrete_scale("fill", paste0("disney_", palette), palette = pal, ...)
-    } else {
-        scale_fill_gradientn(colours = pal(256), ...)
-    }
+  if (discrete) {
+    discrete_scale("fill", paste0("disney_", palette), palette = pal, ...)
+  } else {
+    scale_fill_gradientn(colours = pal(256), ...)
+  }
 }
