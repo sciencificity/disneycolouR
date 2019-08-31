@@ -29,8 +29,8 @@ names(disney_palettes)
 #> [7] "when_i_was_your_age"
 
 # See number discrete values in "main" the combo palette
-str_glue("The number of discrete colours in the `main` combination palette is: {length(disney_palettes[['main']])}")
-#> The number of discrete colours in the `main` combination palette is: 35
+str_glue("The number of discrete colours in the `main` palette is: {length(disney_palettes[['main']])}")
+#> The number of discrete colours in the `main` palette is: 35
 
 # Examples taken from ?scale_colour_discrete and amended
 dsamp <- diamonds[sample(nrow(diamonds), 1000), ]
@@ -62,10 +62,9 @@ disney_palettes[["cinderella"]]
 
 # Another example taken from ?scale_colour_discrete and amended
 miss <- factor(sample(c(NA, 1:5), nrow(mtcars), replace = TRUE))
-
 ggplot(mtcars, aes(mpg, wt)) +
   geom_point(aes(colour = miss)) +
-  scale_colour_disney(na.value = "black")
+  scale_colour_disney()
 ```
 
 ![](README_files/figure-markdown_github/unnamed-chunk-2-4.png)
