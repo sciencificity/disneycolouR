@@ -1,7 +1,7 @@
 Disney Palettes
 ---------------
 
-<img src="./alice.PNG" width=500px />
+<img src="./alice.PNG" width = 300px />
 
 Palette Colours from a blog post
 [here](http://elijahmeeks.com/#content/blog/2015_08_17_palettes).
@@ -64,7 +64,7 @@ disney_palettes[["cinderella"]]
 miss <- factor(sample(c(NA, 1:5), nrow(mtcars), replace = TRUE))
 ggplot(mtcars, aes(mpg, wt)) +
   geom_point(aes(colour = miss)) +
-  scale_colour_disney()
+  scale_colour_disney(palette = "when_i_was_your_age", na.value = "black")
 ```
 
 ![](README_files/figure-markdown_github/unnamed-chunk-2-4.png)
