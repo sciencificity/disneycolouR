@@ -1,7 +1,11 @@
 Disney Palettes
 ---------------
 
-<img src="./alice.png" width=500px /> Palette Colours from a blog post
+<img src="./alice.PNG" width=500px />
+
+![](alice.PNG)
+
+Palette Colours from a blog post
 [here](http://elijahmeeks.com/#content/blog/2015_08_17_palettes).
 Palette made following blog post
 [here](https://drsimonj.svbtle.com/creating-corporate-colour-palettes-for-ggplot2)

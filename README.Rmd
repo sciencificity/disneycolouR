@@ -12,7 +12,11 @@ knitr::opts_chunk$set(
 ```
 
 ## Disney Palettes
-<img src="./alice.png" width=500px />
+
+<img src="./alice.PNG" width=500px /> 
+
+![](alice.PNG)
+
 Palette Colours from a blog post [here](http://elijahmeeks.com/#content/blog/2015_08_17_palettes).
 Palette made following blog post [here](https://drsimonj.svbtle.com/creating-corporate-colour-palettes-for-ggplot2)
 
@@ -26,7 +30,7 @@ devtools::install_github("sciencificity/disneycolouR")
 
 ## Usage
 
-```{r, message = FALSE}
+```{r, message = FALSE, warning = FALSE, eval = TRUE}
 library(disneycolouR)
 # See all palettes
 names(disney_palettes)
