@@ -42,6 +42,5 @@ Palette made ffg blog post: \cr
 # Color by discrete variable using default palette
 ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
   geom_point(size = 4) +
-  scale_color_disney() +
-  theme_tq()
+  scale_color_disney()
 }

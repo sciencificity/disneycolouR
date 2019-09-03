@@ -6,7 +6,7 @@ Disney Palettes
 Palette Colours from a blog post
 [here](http://elijahmeeks.com/#content/blog/2015_08_17_palettes).
 Palette made following blog post
-[here](https://drsimonj.svbtle.com/creating-corporate-colour-palettes-for-ggplot2)
+[here](https://drsimonj.svbtle.com/creating-corporate-colour-palettes-for-ggplot2).
 
 Installation
 ------------
@@ -14,14 +14,14 @@ Installation
 **The development version**
 
 ``` r
-devtools::install_github("sciencificity/disneycolouR")
+devtools::install_github("sciencificity/disneycolour")
 ```
 
 Usage
 -----
 
 ``` r
-library(disneycolouR)
+library(disneycolour)
 # See all palettes
 names(disney_palettes)
 #> [1] "main"                "cinderella"          "monet"              

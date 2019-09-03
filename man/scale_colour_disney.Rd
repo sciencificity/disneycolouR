@@ -47,8 +47,7 @@ ggplot(mtcars, aes(hp, mpg, colour = cyl)) +
     palette = "small_world",
     guide = "none"
   ) +
-  facet_wrap(~cyl) +
-  theme_tq()
+  facet_wrap(~cyl)
 
 # Colour using the `alice` palette, and where cyl is discrete
 ggplot(mtcars, aes(hp, mpg, colour = as.factor(cyl))) +
@@ -58,6 +57,5 @@ ggplot(mtcars, aes(hp, mpg, colour = as.factor(cyl))) +
     palette = "alice",
     guide = "none"
   ) +
-  facet_wrap(~cyl) +
-  theme_tq()
+  facet_wrap(~cyl)
 }

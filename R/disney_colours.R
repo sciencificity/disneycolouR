@@ -151,8 +151,7 @@ disney_pal <- function(palette = "main", reverse = FALSE, ...) {
 #'     palette = "small_world",
 #'     guide = "none"
 #'   ) +
-#'   facet_wrap(~cyl) +
-#'   theme_tq()
+#'   facet_wrap(~cyl)
 #'
 #' # Colour using the `alice` palette, and where cyl is discrete
 #' ggplot(mtcars, aes(hp, mpg, colour = as.factor(cyl))) +
@@ -162,8 +161,7 @@ disney_pal <- function(palette = "main", reverse = FALSE, ...) {
 #'     palette = "alice",
 #'     guide = "none"
 #'   ) +
-#'   facet_wrap(~cyl) +
-#'   theme_tq()
+#'   facet_wrap(~cyl)
 #' @export
 scale_colour_disney <- function(palette = "main", discrete = TRUE, reverse = FALSE, ...) {
   pal <- disney_pal(palette = palette, reverse = reverse)
@@ -206,8 +204,7 @@ scale_colour_disney <- function(palette = "main", discrete = TRUE, reverse = FAL
 #' # Color by discrete variable using default palette
 #' ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
 #'   geom_point(size = 4) +
-#'   scale_color_disney() +
-#'   theme_tq()
+#'   scale_color_disney()
 #' @export
 scale_color_disney <- function(palette = "main", discrete = TRUE, reverse = FALSE, ...) {
   pal <- disney_pal(palette = palette, reverse = reverse)

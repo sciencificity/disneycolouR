@@ -1,4 +1,4 @@
-Package: disneycolouR
+Package: disneycolour
 Type: Package
 Title: Palettes for Disney colours
 Version: 0.1.0
@@ -9,6 +9,5 @@ Description: Palette Colours from: http://elijahmeeks.com/#content/blog/2015_08_
 License: CC0
 Encoding: UTF-8
 LazyData: true
-Depends: ggplot2, 
-         tidyquant
+Depends: ggplot2
 RoxygenNote: 6.1.1
