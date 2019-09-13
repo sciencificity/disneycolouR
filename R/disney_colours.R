@@ -3,6 +3,7 @@
 #   http://elijahmeeks.com/#content/blog/2015_08_17_palettes
 # Palette made ffg blog post:
 #   https://drsimonj.svbtle.com/creating-corporate-colour-palettes-for-ggplot2
+# https://medium.com/sketch-app-sources/10-color-palettes-from-the-natural-world-to-inspire-your-creative-streak-bc2fb73d161e
 
 #' The list of disney colours
 disney_colours <- c(
@@ -40,7 +41,17 @@ disney_colours <- c(
   `yourage3`    = "#c8a88a",
   `yourage4`    = "#857d7b",
   `yourage5`    = "#592e2a",
-  `yourage6`    = "#e39587"
+  `yourage6`    = "#e39587",
+  `uyuni1`= "#fecda5",
+  `uyuni2` = "#ffb281",
+  `uyuni3` = "#ff9175",
+  `uyuni4` = "#bc8a96",
+  `uyuni5` = "#606594",
+  `uyuni6` = "#352436",
+  `uyuni7` = "#09040a",
+  `uyuni8` = "#01609f",
+  `uyuni9` = "#53c1e2",
+  `uyuni10` = "#d2c4c4"
 )
 
 #' Function to extract colours as hex codes
@@ -93,6 +104,14 @@ disney_palettes <- list(
     "yourage1", "yourage2",
     "yourage3", "yourage4",
     "yourage5", "yourage6"
+  ),
+
+  `uyuni_bolivia` = disney_cols(
+    "uyuni1", "uyuni2",
+    "uyuni3", "uyuni4",
+    "uyuni5", "uyuni6",
+    "uyuni7", "uyuni8",
+    "uyuni9", "uyuni10"
   )
 )
 

@@ -4,7 +4,7 @@
 \name{disney_colours}
 \alias{disney_colours}
 \title{The list of disney colours}
-\format{An object of class \code{character} of length 35.}
+\format{An object of class \code{character} of length 45.}
 \usage{
 disney_colours
 }
